@@ -7,6 +7,15 @@ const connect = function () {
     port: 50541,
   });
 
+  //print a message to the screen when the connection is successfully established
+  conn.on("connect", () => {
+    console.log(`Successfully connected to game server`);
+    // Send the string name to server
+    conn.write("Name: HYQ");
+  });
+ 
+ 
+
   //interpret incoming data as text
   conn.setEncoding("utf-8");
   conn.on("data", (message) => {
