@@ -12,6 +12,8 @@ const connect = function () {
     console.log(`Successfully connected to game server`);
     // Send the string name to server
     conn.write("Name: HYQ");
+    // send the string move up
+    
   });
  
  
