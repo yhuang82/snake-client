@@ -11,7 +11,12 @@ const setupInput = (conn) => {
   return stdin;
 };
 
-const handleUserInput = function(key) {
+const handleUserInput = function (key) {
+  const cannedMessages = {
+  "1": "Say: Hello",
+  "2": "Say: Nice",
+  "3": "Say: Good",
+};
   if (key === "\u0003") {
     // Ctrl + C was pressed
     console.log("Exiting game.");
@@ -33,6 +38,14 @@ const handleUserInput = function(key) {
   if (key === "\u001b[A") {
     connection.write("Move: up");
   }
+  if (cannedMessages[key]) {
+    connection.write(cannedMessages[key]);
+  }
+
+
+
 };
 
 module.exports = { setupInput };
+
+
